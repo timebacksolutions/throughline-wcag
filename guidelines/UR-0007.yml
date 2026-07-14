@@ -1,0 +1,13 @@
+uid: UR-0007
+type: user_requirement
+status: approved
+title: Seizures and Physical Reactions — Do not design content in a way that is known to cause
+  seizures or physical reactions.
+text: Do not design content in a way that is known to cause seizures or physical reactions.
+rationale: Flashing content can trigger seizures; limiting flashes protects users with photosensitive
+  epilepsy and vestibular disorders.
+links:
+- target: INT-0002
+  type: derives_from
+attrs:
+  source_ref: '2.3'

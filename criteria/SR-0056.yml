@@ -1,0 +1,21 @@
+uid: SR-0056
+type: system_requirement
+status: approved
+title: Pointer Gestures (A)
+text: All functionality that uses multipoint or path-based gestures for operation can be operated
+  with a single pointer without a path-based gesture, unless a multipoint or path-based gesture
+  is essential. NoteThis requirement applies to web content that interprets pointer actions
+  (i.e., this does not apply to actions that are required to operate the user agent or assistive
+  technology).
+rationale: The intent of this success criterion is to ensure that content can be controlled
+  with a range of pointing devices, abilities, and assistive technologies. Some people cannot
+  perform gestures in a precise manner, or they may use a specialized or adapted input device
+  such as a head pointer, eye-gaze system, or speech-controlled mouse emulator. Some pointing
+  methods lack the capability or accuracy to perform multipoint or path-based gestures.
+links:
+- target: UR-0009
+  type: implements
+attrs:
+  source_ref: 2.5.1
+  level: A
+  wcag_version: '2.1'

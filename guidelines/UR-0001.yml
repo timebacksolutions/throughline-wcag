@@ -1,0 +1,15 @@
+uid: UR-0001
+type: user_requirement
+status: approved
+title: Text Alternatives — Provide text alternatives for any non-text content so that it can
+  be changed into other forms people need, such as large print, braille, speech, symbols or
+  simpler language.
+text: Provide text alternatives for any non-text content so that it can be changed into other
+  forms people need, such as large print, braille, speech, symbols or simpler language.
+rationale: Text can be rendered as speech, braille, enlarged print or symbols, so non-text content
+  reaches people who cannot see or process images.
+links:
+- target: INT-0001
+  type: derives_from
+attrs:
+  source_ref: '1.1'

@@ -1,0 +1,12 @@
+uid: UR-0002
+type: user_requirement
+status: approved
+title: Time-based Media — Provide alternatives for time-based media.
+text: Provide alternatives for time-based media.
+rationale: Audio and video carry information some users cannot hear or see; captions, descriptions
+  and transcripts make that information available to everyone.
+links:
+- target: INT-0001
+  type: derives_from
+attrs:
+  source_ref: '1.2'

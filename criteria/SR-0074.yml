@@ -1,0 +1,19 @@
+uid: SR-0074
+type: system_requirement
+status: approved
+title: Change on Request (AAA)
+text: Changes of context are initiated only by user request or a mechanism is available to turn
+  off such changes.
+rationale: The intent of this success criterion is to encourage design of web content that gives
+  users full control of changes of context. This success criterion aims to eliminate potential
+  confusion that may be caused by unexpected changes of context, such as launching new windows,
+  or automatic submission of forms after selecting an item from a list. Such unexpected changes
+  of context may cause difficulties for people with motor impairments, people with low vision,
+  people who are blind, and people with certain cognitive limitations.
+links:
+- target: UR-0011
+  type: implements
+attrs:
+  source_ref: 3.2.5
+  level: AAA
+  wcag_version: '2.0'

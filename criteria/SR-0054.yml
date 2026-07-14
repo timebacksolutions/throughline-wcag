@@ -1,0 +1,19 @@
+uid: SR-0054
+type: system_requirement
+status: approved
+title: Focus Not Obscured (Enhanced) (AAA)
+text: When a user interface component receives keyboard focus, no part of the component is hidden
+  by author-created content.
+rationale: The intent of this success criterion is to ensure that the item receiving keyboard
+  focus is always visible in the user's viewport. For sighted people who rely on a keyboard
+  (or on a device that operates through the keyboard interface, such as a switch or voice input),
+  knowing the current point of focus is critical. The component with focus signals the interaction
+  point on the page. Where users cannot see the item with focus, they may not know how to proceed,
+  or may even think the system has become unresponsive.
+links:
+- target: UR-0008
+  type: implements
+attrs:
+  source_ref: 2.4.12
+  level: AAA
+  wcag_version: '2.2'

@@ -1,0 +1,12 @@
+uid: UR-0006
+type: user_requirement
+status: approved
+title: Enough Time — Provide users enough time to read and use content.
+text: Provide users enough time to read and use content.
+rationale: People read and act at very different speeds; users must be able to turn off, adjust
+  or extend time limits so they are not cut off mid-task.
+links:
+- target: INT-0002
+  type: derives_from
+attrs:
+  source_ref: '2.2'

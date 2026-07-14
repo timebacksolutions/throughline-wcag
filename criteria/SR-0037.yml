@@ -1,0 +1,17 @@
+uid: SR-0037
+type: system_requirement
+status: approved
+title: Interruptions (AAA)
+text: Interruptions can be postponed or suppressed by the user, except interruptions involving
+  an emergency.
+rationale: The intent of this success criterion is to allow users to turn off updates from the
+  author/server except in emergencies. Emergencies would include civil emergency alert messages
+  or any other messages that warn of danger to health, safety, or property, including data loss,
+  loss of connection, etcetera.
+links:
+- target: UR-0006
+  type: implements
+attrs:
+  source_ref: 2.2.4
+  level: AAA
+  wcag_version: '2.0'

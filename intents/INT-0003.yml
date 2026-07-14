@@ -1,0 +1,10 @@
+uid: INT-0003
+type: intent
+status: approved
+title: Understandable — Information and the operation of the user interface must be understandable.
+text: 'Users can understand both the information presented and how to operate the interface:
+  content is readable and predictable and the system helps people avoid and recover from mistakes,
+  so users with cognitive, learning or language differences are not shut out.'
+normative: false
+attrs:
+  source_ref: Principle 3

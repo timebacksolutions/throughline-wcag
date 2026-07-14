@@ -1,0 +1,19 @@
+uid: SR-0065
+type: system_requirement
+status: approved
+title: Language of Parts (AA)
+text: The human language of each passage or phrase in the content can be programmatically determined
+  except for proper names, technical terms, words of indeterminate language, and words or phrases
+  that have become part of the vernacular of the immediately surrounding text.
+rationale: The intent of this success criterion is to ensure that user agents can correctly
+  present phrases, passages, and in some cases words written in multiple languages. This makes
+  it possible for user agents and assistive technologies to present content according to the
+  presentation and pronunciation rules for that language. This applies to graphical browsers
+  as well as screen readers, braille displays, and other voice browsers.
+links:
+- target: UR-0010
+  type: implements
+attrs:
+  source_ref: 3.1.2
+  level: AA
+  wcag_version: '2.0'

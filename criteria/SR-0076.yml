@@ -1,0 +1,17 @@
+uid: SR-0076
+type: system_requirement
+status: approved
+title: Error Identification (A)
+text: If an input error is automatically detected, the item that is in error is identified and
+  the error is described to the user in text.
+rationale: The intent of this success criterion is to ensure that users are aware that an error
+  has occurred and can determine what is wrong. In the case of an unsuccessful form submission,
+  it is not sufficient to only re-display the form without providing any hint that the submission
+  failed. The error must be indicated in text.
+links:
+- target: UR-0012
+  type: implements
+attrs:
+  source_ref: 3.3.1
+  level: A
+  wcag_version: '2.0'

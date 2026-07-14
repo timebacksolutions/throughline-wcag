@@ -1,0 +1,13 @@
+uid: UR-0013
+type: user_requirement
+status: approved
+title: Compatible — Maximize compatibility with current and future user agents, including assistive
+  technologies.
+text: Maximize compatibility with current and future user agents, including assistive technologies.
+rationale: Content must expose correct name, role, value and status to assistive technologies
+  so it keeps working across browsers, devices and future tools.
+links:
+- target: INT-0004
+  type: derives_from
+attrs:
+  source_ref: '4.1'

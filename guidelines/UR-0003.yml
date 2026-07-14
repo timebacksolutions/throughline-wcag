@@ -1,0 +1,14 @@
+uid: UR-0003
+type: user_requirement
+status: approved
+title: Adaptable — Create content that can be presented in different ways (for example simpler
+  layout) without losing information or structure.
+text: Create content that can be presented in different ways (for example simpler layout) without
+  losing information or structure.
+rationale: When structure and relationships are encoded programmatically, content can be presented
+  in different ways — spoken, reflowed, restyled — without losing meaning.
+links:
+- target: INT-0001
+  type: derives_from
+attrs:
+  source_ref: '1.3'

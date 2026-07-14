@@ -1,0 +1,60 @@
+[project]
+name = "W3C WCAG 2.2 (throughline source)"
+format_version = 2
+
+# A throughline *source*: a standalone graph a consuming project composes via
+# throughline-compose, importing it under a namespace (e.g. `wcag`) and referencing
+# criteria as `wcag:SR-0037`. The UIDs here are this source's own and immutable; the
+# WCAG number (`1.4.3`, `Principle 1`) lives in `attrs.source_ref`, never in the UID.
+
+[grounding]
+root_types = ["intent"]
+delivery_roots = ["intent"]
+ground_link_types = ["derives_from", "implements"]
+ai_origins = ["ai", "hybrid"]
+
+# The "why" spine is MULTI-ROOT by design — the reason WCAG is on the list. WCAG's four
+# Principles are four *distinct* reasons content must behave, so there are four co-equal
+# **root** intents (Perceivable, Operable, Understandable, Robust), never a single
+# umbrella. Each Guideline is a user_requirement that `derives_from` its own principle;
+# each Success Criterion is a system_requirement that `implements` its guideline. WCAG's
+# hierarchy is strict (one principle per guideline), so a criterion grounds to a principle
+# through implements→derives_from with no extra edge. Every item carries a `rationale` —
+# its own reason for being; for criteria that is the W3C "Intent of this Success Criterion".
+
+[types.user_requirement]
+attrs.source_ref = { required = true }
+
+[types.system_requirement]
+# source_ref = the WCAG SC number ("1.4.3"); level = A/AA/AAA; wcag_version = the version
+# that introduced the criterion, so one graph carries 2.0/2.1/2.2. Optional wcag_removed
+# marks a criterion dropped in a later version (only 4.1.1 Parsing, removed in 2.2).
+attrs.source_ref = { required = true }
+attrs.level = { required = true, values = ["A", "AA", "AAA"] }
+attrs.wcag_version = { required = true, values = ["2.0", "2.1", "2.2"] }
+
+[links]
+types = ["derives_from", "implements", "relates"]
+
+[link_rules]
+derives_from = { from = ["user_requirement"], to = ["intent"] }
+implements   = { from = ["system_requirement"], to = ["user_requirement"] }
+
+[status]
+values = ["proposed", "draft", "deferred", "approved", "ratified", "implemented",
+          "verified", "suspect", "rejected", "deleted"]
+
+[transitions]
+proposed    = ["draft", "approved", "ratified", "deferred", "rejected", "deleted"]
+draft       = ["approved", "deferred", "rejected", "deleted"]
+deferred    = ["draft", "approved", "rejected", "deleted"]
+approved    = ["ratified", "implemented", "deferred", "suspect", "rejected", "deleted"]
+ratified    = ["implemented", "suspect", "rejected", "deleted"]
+implemented = ["verified", "suspect", "rejected", "deleted"]
+verified    = ["implemented", "suspect", "deleted"]
+suspect     = ["approved", "ratified", "implemented", "verified", "rejected", "deleted"]
+rejected    = ["draft", "deleted"]
+
+# `tl docs` regenerates docs/*.md from the graph; `tl docs --check` gates it.
+[docs]
+paths = ["README.md", "docs/*.md"]

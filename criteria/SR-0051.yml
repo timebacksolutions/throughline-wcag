@@ -1,0 +1,21 @@
+uid: SR-0051
+type: system_requirement
+status: approved
+title: Link Purpose (Link Only) (AAA)
+text: A mechanism is available to allow the purpose of each link to be identified from link
+  text alone, except where the purpose of the link would be ambiguous to users in general.
+rationale: The intent of this success criterion is to help users understand the purpose of each
+  link in the content, so they can decide whether they want to follow it. Best practice is that
+  links with the same destination would have the same descriptions, but links with different
+  purposes and destinations would have different descriptions (see also Success Criterion 3.2.4
+  Consistent Identification which calls for consistency in identifying components that have
+  the same functionality). Because the purpose of a link can be identified from its link text,
+  links can be understood when they are out of context, such as when the user agent provides
+  a list of all the links on a page.
+links:
+- target: UR-0008
+  type: implements
+attrs:
+  source_ref: 2.4.9
+  level: AAA
+  wcag_version: '2.0'

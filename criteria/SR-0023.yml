@@ -1,0 +1,22 @@
+uid: SR-0023
+type: system_requirement
+status: approved
+title: Low or No Background Audio (AAA)
+text: 'For prerecorded audio-only content that (1) contains primarily speech in the foreground,
+  (2) is not an audio CAPTCHA or audio logo, and (3) is not vocalization intended to be primarily
+  musical expression such as singing or rapping, at least one of the following is true: No Background
+  The audio does not contain background sounds. Turn Off The background sounds can be turned
+  off. 20 dB The background sounds are at least 20 decibels lower than the foreground speech
+  content, with the exception of occasional sounds that last for only one or two seconds. NotePer
+  the definition of "decibel," background sound that meets this requirement will be approximately
+  four times quieter than the foreground speech content.'
+rationale: The intent of this success criterion is to ensure that any non-speech sounds are
+  low enough that a user who is hard of hearing can separate the speech from background sounds
+  or other noise foreground speech content.
+links:
+- target: UR-0004
+  type: implements
+attrs:
+  source_ref: 1.4.7
+  level: AAA
+  wcag_version: '2.0'

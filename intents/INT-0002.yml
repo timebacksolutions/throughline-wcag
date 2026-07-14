@@ -1,0 +1,10 @@
+uid: INT-0002
+type: intent
+status: approved
+title: Operable — User interface components and navigation must be operable.
+text: Users can operate the interface and navigate the content whatever their input method —
+  keyboard, pointer, voice, switch or assistive technology — and however much time, dexterity
+  or precision they can bring, so no interaction demands an action a user cannot perform.
+normative: false
+attrs:
+  source_ref: Principle 2

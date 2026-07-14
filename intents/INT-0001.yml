@@ -1,0 +1,11 @@
+uid: INT-0001
+type: intent
+status: approved
+title: Perceivable — Information and user interface components must be presentable to users
+  in ways they can perceive.
+text: 'Users can perceive the information and interface: content is available to sight, hearing
+  or touch so no one is excluded because a single sense — for example vision or hearing — is
+  unavailable to them. Information is never conveyed in a form only one sense can access.'
+normative: false
+attrs:
+  source_ref: Principle 1

@@ -1,0 +1,13 @@
+uid: UR-0009
+type: user_requirement
+status: approved
+title: Input Modalities — Make it easier for users to operate functionality through various
+  inputs beyond keyboard.
+text: Make it easier for users to operate functionality through various inputs beyond keyboard.
+rationale: People operate devices in many ways beyond a keyboard — touch, pointer, voice, motion
+  — and each must work without requiring precise or tiring gestures.
+links:
+- target: INT-0002
+  type: derives_from
+attrs:
+  source_ref: '2.5'

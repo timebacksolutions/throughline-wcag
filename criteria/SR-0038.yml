@@ -1,0 +1,16 @@
+uid: SR-0038
+type: system_requirement
+status: approved
+title: Re-authenticating (AAA)
+text: When an authenticated session expires, the user can continue the activity without loss
+  of data after re-authenticating.
+rationale: The intent of this success criterion is to allow all users to complete authenticated
+  transactions that have inactivity time limits or other circumstances that would cause a user
+  to be logged out while in the midst of completing the transaction.
+links:
+- target: UR-0006
+  type: implements
+attrs:
+  source_ref: 2.2.5
+  level: AAA
+  wcag_version: '2.0'

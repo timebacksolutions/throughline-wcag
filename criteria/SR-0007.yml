@@ -1,0 +1,21 @@
+uid: SR-0007
+type: system_requirement
+status: approved
+title: Sign Language (Prerecorded) (AAA)
+text: Sign language interpretation is provided for all prerecorded audio content in synchronized
+  media.
+rationale: The intent of this success criterion is to enable people who are deaf or hard of
+  hearing and who are fluent in a sign language to understand the content of the audio track
+  of synchronized media presentations. Written text, such as that found in captions, is often
+  a second language. Because sign language provides the ability to provide intonation, emotion
+  and other audio information that is reflected in sign language interpretation, but not in
+  captions, sign language interpretation provides richer and more equivalent access to synchronized
+  media. People who communicate extensively in sign language are also faster in sign language
+  and synchronized media is a time-based presentation.
+links:
+- target: UR-0002
+  type: implements
+attrs:
+  source_ref: 1.2.6
+  level: AAA
+  wcag_version: '2.0'

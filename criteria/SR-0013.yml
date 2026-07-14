@@ -1,0 +1,22 @@
+uid: SR-0013
+type: system_requirement
+status: approved
+title: Sensory Characteristics (A)
+text: Instructions provided for understanding and operating content do not rely solely on sensory
+  characteristics of components such as shape, color, size, visual location, orientation, or
+  sound. NoteFor requirements related to color, refer to Guideline 1.4.
+rationale: The intent of this success criterion is to ensure that all users can access instructions
+  for using the content, even when they cannot perceive shape or size or use information about
+  spatial location or orientation. Some content relies on knowledge of the shape or position
+  of objects that are not available from the structure of the content (for example, "round button"
+  or "button to the right"). Some users with disabilities are not able to perceive shape or
+  position due to the nature of the assistive technologies they use. This success criterion
+  requires that additional information be provided to clarify instructions that are dependent
+  on this kind of information.
+links:
+- target: UR-0003
+  type: implements
+attrs:
+  source_ref: 1.3.3
+  level: A
+  wcag_version: '2.0'

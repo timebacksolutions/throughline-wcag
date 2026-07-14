@@ -1,0 +1,19 @@
+uid: SR-0062
+type: system_requirement
+status: approved
+title: Dragging Movements (AA)
+text: All functionality that uses a dragging movement for operation can be achieved by a single
+  pointer without dragging, unless dragging is essential or the functionality is determined
+  by the user agent and not modified by the author. NoteThis requirement applies to web content
+  that interprets pointer actions (i.e., this does not apply to actions that are required to
+  operate the user agent or assistive technology).
+rationale: The intent of this success criterion is to ensure functionality that uses a dragging
+  movement has another single pointer mode of operation without the need for the dexterity required
+  to drag elements.
+links:
+- target: UR-0009
+  type: implements
+attrs:
+  source_ref: 2.5.7
+  level: AA
+  wcag_version: '2.2'

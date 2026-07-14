@@ -1,0 +1,17 @@
+uid: SR-0085
+type: system_requirement
+status: deleted
+title: Parsing (Obsolete and removed) (A)
+text: NoteThis criterion was originally adopted to address problems that assistive technology
+  had directly parsing HTML. Assistive technology no longer has any need to directly parse HTML.
+  Consequently, these problems either no longer exist or are addressed by other criteria. This
+  criterion no longer has utility and is removed.
+rationale: This criterion has been removed from WCAG 2.2.
+links:
+- target: UR-0013
+  type: implements
+attrs:
+  source_ref: 4.1.1
+  level: A
+  wcag_version: '2.0'
+  wcag_removed: '2.2'

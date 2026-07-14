@@ -1,0 +1,14 @@
+uid: SR-0050
+type: system_requirement
+status: approved
+title: Location (AAA)
+text: Information about the user's location within a set of web pages is available.
+rationale: The intent of this success criterion is to provide a way for the user to orient herself
+  within a set of web pages, a website, or a web application and find related information.
+links:
+- target: UR-0008
+  type: implements
+attrs:
+  source_ref: 2.4.8
+  level: AAA
+  wcag_version: '2.0'

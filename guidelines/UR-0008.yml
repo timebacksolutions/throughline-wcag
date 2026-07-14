@@ -1,0 +1,14 @@
+uid: UR-0008
+type: user_requirement
+status: approved
+title: Navigable — Provide ways to help users navigate, find content, and determine where they
+  are.
+text: Provide ways to help users navigate, find content, and determine where they are.
+rationale: Users need ways to find content, orient themselves and know where they are — through
+  titles, headings, focus order and visible focus — especially when they cannot scan a page
+  visually.
+links:
+- target: INT-0002
+  type: derives_from
+attrs:
+  source_ref: '2.4'

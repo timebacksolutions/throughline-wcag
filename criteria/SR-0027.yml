@@ -1,0 +1,21 @@
+uid: SR-0027
+type: system_requirement
+status: approved
+title: Non-text Contrast (AA)
+text: 'The visual presentation of the following have a contrast ratio of at least 3:1 against
+  adjacent color(s): User Interface Components Visual information required to identify user
+  interface components and states, except for inactive components or where the appearance of
+  the component is determined by the user agent and not modified by the author; Graphical Objects
+  Parts of graphics required to understand the content, except when a particular presentation
+  of graphics is essential to the information being conveyed.'
+rationale: The intent of this success criterion is to ensure that user interface components
+  (i.e., controls) and meaningful graphics are distinguishable by people with moderately low
+  vision. The requirements and rationale are similar to those for large text in 1.4.3 Contrast
+  (Minimum). Note that this requirement does not apply to inactive user interface components.
+links:
+- target: UR-0004
+  type: implements
+attrs:
+  source_ref: 1.4.11
+  level: AA
+  wcag_version: '2.1'

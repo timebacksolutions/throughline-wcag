@@ -1,0 +1,14 @@
+uid: UR-0004
+type: user_requirement
+status: approved
+title: Distinguishable — Make it easier for users to see and hear content including separating
+  foreground from background.
+text: Make it easier for users to see and hear content including separating foreground from
+  background.
+rationale: Users with low vision, colour blindness or hearing difficulty need enough contrast,
+  control over audio and resizable text to separate content from its surroundings.
+links:
+- target: INT-0001
+  type: derives_from
+attrs:
+  source_ref: '1.4'

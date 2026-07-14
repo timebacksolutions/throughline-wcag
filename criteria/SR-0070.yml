@@ -1,0 +1,16 @@
+uid: SR-0070
+type: system_requirement
+status: approved
+title: On Focus (A)
+text: When any user interface component receives focus, it does not initiate a change of context.
+rationale: 'The intent of this success criterion is to ensure that functionality is predictable
+  as visitors navigate their way through a document. Any component that is able to trigger an
+  event when it receives focus must not change the context. Examples of changing context when
+  a component receives focus include, but are not limited to:'
+links:
+- target: UR-0011
+  type: implements
+attrs:
+  source_ref: 3.2.1
+  level: A
+  wcag_version: '2.0'

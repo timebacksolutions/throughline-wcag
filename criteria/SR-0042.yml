@@ -1,0 +1,21 @@
+uid: SR-0042
+type: system_requirement
+status: approved
+title: Animation from Interactions (AAA)
+text: Motion animation triggered by interaction can be disabled, unless the animation is essential
+  to the functionality or the information being conveyed.
+rationale: The intent of this success criterion is to allow users to prevent animation from
+  being displayed on web pages. Some users experience distraction or nausea from animated content.
+  For example, if scrolling a page causes elements to move (other than the essential movement
+  associated with scrolling) it can trigger vestibular disorders. Vestibular (inner ear) disorder
+  reactions include dizziness, nausea and headaches. Another animation that is often non-essential
+  is parallax scrolling. Parallax scrolling occurs when backgrounds move at a different rate
+  to foregrounds. Animation that is essential to the functionality or information of a web page
+  is allowed by this success criterion.
+links:
+- target: UR-0007
+  type: implements
+attrs:
+  source_ref: 2.3.3
+  level: AAA
+  wcag_version: '2.1'

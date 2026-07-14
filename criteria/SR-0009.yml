@@ -1,0 +1,17 @@
+uid: SR-0009
+type: system_requirement
+status: approved
+title: Media Alternative (Prerecorded) (AAA)
+text: An alternative for time-based media is provided for all prerecorded synchronized media
+  and for all prerecorded video-only media.
+rationale: The intent of this success criterion is to make audio visual material available to
+  individuals whose vision is too poor to reliably read captions and whose hearing is too poor
+  to reliably hear dialogue and audio description. This is done by providing an alternative
+  for time-based media in the same human language as the video or page on which it appears.
+links:
+- target: UR-0002
+  type: implements
+attrs:
+  source_ref: 1.2.8
+  level: AAA
+  wcag_version: '2.0'

@@ -1,0 +1,20 @@
+uid: SR-0078
+type: system_requirement
+status: approved
+title: Error Suggestion (AA)
+text: If an input error is automatically detected and suggestions for correction are known,
+  then the suggestions are provided to the user, unless it would jeopardize the security or
+  purpose of the content.
+rationale: The intent of this success criterion is to ensure that users receive appropriate
+  suggestions for correction of an input error if it is possible. The definition of "input error"
+  says that it is "information provided by the user that is not accepted" by the system. Some
+  examples of information that is not accepted include information that is required but omitted
+  by the user and information that is provided by the user but that falls outside the required
+  data format or allowed values.
+links:
+- target: UR-0012
+  type: implements
+attrs:
+  source_ref: 3.3.3
+  level: AA
+  wcag_version: '2.0'

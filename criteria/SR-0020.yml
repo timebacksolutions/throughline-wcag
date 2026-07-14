@@ -1,0 +1,18 @@
+uid: SR-0020
+type: system_requirement
+status: approved
+title: Resize Text (AA)
+text: Except for captions and images of text, text can be resized without assistive technology
+  up to 200 percent without loss of content or functionality.
+rationale: The intent of this success criterion is to ensure that visually rendered text, including
+  controls and labels using text, can be made larger so that it can be read more easily by people
+  with milder visual impairments, without requiring the use of assistive technology (such as
+  a screen magnifier). Users may benefit from scaling all content on the web page, but text
+  is most critical.
+links:
+- target: UR-0004
+  type: implements
+attrs:
+  source_ref: 1.4.4
+  level: AA
+  wcag_version: '2.0'

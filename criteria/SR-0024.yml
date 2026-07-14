@@ -1,0 +1,31 @@
+uid: SR-0024
+type: system_requirement
+status: approved
+title: Visual Presentation (AAA)
+text: 'For the visual presentation of blocks of text, a mechanism is available to achieve the
+  following: Foreground and background colors can be selected by the user. Width is no more
+  than 80 characters or glyphs (40 if CJK). Text is not justified (aligned to both the left
+  and the right margins). Line spacing (leading) is at least space-and-a-half within paragraphs,
+  and paragraph spacing is at least 1.5 times larger than the line spacing. Text can be resized
+  without assistive technology up to 200 percent in a way that does not require the user to
+  scroll horizontally to read a line of text on a full-screen window. Note 1Content is not required
+  to use these values. The requirement is that a mechanism is available for users to change
+  these presentation aspects. The mechanism can be provided by the browser or other user agent.
+  Content is not required to provide the mechanism. Note 2Writing systems for some languages
+  use different presentation aspects to improve readability and legibility. If a presentation
+  aspect in this success criterion is not used in a writing system, content in that writing
+  system does not need to use that presentation setting and can conform without it. Authors
+  are encouraged to follow guidance for improving readability and legibility of text in their
+  writing system.'
+rationale: The intent of this success criterion is to ensure that visually rendered text is
+  presented in such a manner that it can be perceived without its layout interfering with its
+  readability. People with some cognitive, language and learning disabilities and some low vision
+  users cannot perceive the text and/or lose their reading place if the text is presented in
+  a manner that is difficult for them to read.
+links:
+- target: UR-0004
+  type: implements
+attrs:
+  source_ref: 1.4.8
+  level: AAA
+  wcag_version: '2.0'

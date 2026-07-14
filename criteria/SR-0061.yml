@@ -1,0 +1,19 @@
+uid: SR-0061
+type: system_requirement
+status: approved
+title: Concurrent Input Mechanisms (AAA)
+text: Web content does not restrict use of input modalities available on a platform except where
+  the restriction is essential, required to ensure the security of the content, or required
+  to respect user settings.
+rationale: The intent of this success criterion is to ensure that people can use and switch
+  between different modes of input when interacting with web content. Users may employ a variety
+  of input mechanisms when interacting with web content. These may be a combination of mechanisms
+  such as a keyboard or keyboard-like interfaces and pointer devices like a mouse, stylus or
+  touchscreen.
+links:
+- target: UR-0009
+  type: implements
+attrs:
+  source_ref: 2.5.6
+  level: AAA
+  wcag_version: '2.1'

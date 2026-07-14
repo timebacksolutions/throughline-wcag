@@ -1,0 +1,21 @@
+uid: SR-0071
+type: system_requirement
+status: approved
+title: On Input (A)
+text: Changing the setting of any user interface component does not automatically cause a change
+  of context unless the user has been advised of the behavior before using the component.
+rationale: The intent of this success criterion is to ensure that entering data or selecting
+  a form control has predictable effects. Changing the setting of any user interface component
+  is changing some aspect in the control that will persist when the user is no longer interacting
+  with it. So checking a checkbox, entering text into a text field, or changing the selected
+  option in a list control changes its setting, but activating a link or a button does not.
+  Changes in context can confuse users who do not easily perceive the change or are easily distracted
+  by changes. Changes of context are appropriate only when it is clear that such a change will
+  happen in response to the user's action.
+links:
+- target: UR-0011
+  type: implements
+attrs:
+  source_ref: 3.2.2
+  level: A
+  wcag_version: '2.0'

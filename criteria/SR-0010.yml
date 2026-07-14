@@ -1,0 +1,23 @@
+uid: SR-0010
+type: system_requirement
+status: approved
+title: Audio-only (Live) (AAA)
+text: An alternative for time-based media that presents equivalent information for live audio-only
+  content is provided.
+rationale: The intent of this success criterion is to make information conveyed by live audio,
+  such as web-based audio conferencing, live speeches and radio Webcasts, accessible through
+  the use of a text alternative. A live text caption service will enable live audio to be accessible
+  to people who are deaf or hard of hearing, or who cannot otherwise hear the audio. Such services
+  use a trained human operator who listens in to what is being said and uses a special keyboard
+  to enter the text with only a small delay. They are able to capture a live event with a high
+  degree of fidelity, and also to insert notes on any non spoken audio which is essential to
+  understanding the event. A transcript is sometimes a possibility if the live audio is following
+  a set script; but a live caption service is preferred because it plays out at the same pace
+  as the audio itself, and can adapt to any deviations from the script that might occur.
+links:
+- target: UR-0002
+  type: implements
+attrs:
+  source_ref: 1.2.9
+  level: AAA
+  wcag_version: '2.0'

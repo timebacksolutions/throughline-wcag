@@ -1,0 +1,21 @@
+uid: SR-0017
+type: system_requirement
+status: approved
+title: Use of Color (A)
+text: Color is not used as the only visual means of conveying information, indicating an action,
+  prompting a response, or distinguishing a visual element. NoteThis success criterion addresses
+  color perception specifically. Other forms of perception are covered in Guideline 1.3 including
+  programmatic access to color and other visual presentation coding.
+rationale: The intent of this success criterion is to ensure that all sighted users can access
+  information that is conveyed by color differences, that is, by the use of color where each
+  color has a meaning assigned to it. If the information is conveyed through color differences
+  in an image (or other non-text format), the color may not be seen by users with color deficiencies.
+  In this case, providing the information conveyed with color through another visual means ensures
+  users who cannot see color can still perceive the information.
+links:
+- target: UR-0004
+  type: implements
+attrs:
+  source_ref: 1.4.1
+  level: A
+  wcag_version: '2.0'

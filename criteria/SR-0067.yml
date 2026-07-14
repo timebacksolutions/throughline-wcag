@@ -1,0 +1,14 @@
+uid: SR-0067
+type: system_requirement
+status: approved
+title: Abbreviations (AAA)
+text: A mechanism for identifying the expanded form or meaning of abbreviations is available.
+rationale: The intent of this success criterion is to ensure that users can access the expanded
+  form of abbreviations.
+links:
+- target: UR-0010
+  type: implements
+attrs:
+  source_ref: 3.1.4
+  level: AAA
+  wcag_version: '2.0'

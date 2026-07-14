@@ -1,0 +1,17 @@
+uid: SR-0072
+type: system_requirement
+status: approved
+title: Consistent Navigation (AA)
+text: Navigational mechanisms that are repeated on multiple web pages within a set of web pages
+  occur in the same relative order each time they are repeated, unless a change is initiated
+  by the user.
+rationale: The intent of this success criterion is to encourage the use of consistent visual
+  layout and source order for users who interact with repeated content within a set of web pages
+  and need to locate specific information or functionality more than once.
+links:
+- target: UR-0011
+  type: implements
+attrs:
+  source_ref: 3.2.3
+  level: AA
+  wcag_version: '2.0'

@@ -1,0 +1,16 @@
+uid: SR-0005
+type: system_requirement
+status: approved
+title: Captions (Live) (AA)
+text: Captions are provided for all live audio content in synchronized media.
+rationale: The intent of this success criterion is to enable people who are deaf or hard of
+  hearing to watch real-time presentations. Captions provide the part of the content available
+  via the audio track. Captions not only include dialogue, but also identify who is speaking
+  and notate sound effects and other significant audio.
+links:
+- target: UR-0002
+  type: implements
+attrs:
+  source_ref: 1.2.4
+  level: AA
+  wcag_version: '2.0'

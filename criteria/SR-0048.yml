@@ -1,0 +1,17 @@
+uid: SR-0048
+type: system_requirement
+status: approved
+title: Headings and Labels (AA)
+text: Headings and labels describe topic or purpose.
+rationale: The intent of this success criterion is to help users understand what information
+  is contained in web pages and how that information is organized. When headings are clear and
+  descriptive, users can find the information they seek more easily, and they can understand
+  the relationships between different parts of the content more easily. Descriptive labels help
+  users identify specific components within the content.
+links:
+- target: UR-0008
+  type: implements
+attrs:
+  source_ref: 2.4.6
+  level: AA
+  wcag_version: '2.0'

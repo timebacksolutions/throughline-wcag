@@ -1,0 +1,23 @@
+uid: SR-0069
+type: system_requirement
+status: approved
+title: Pronunciation (AAA)
+text: A mechanism is available for identifying specific pronunciation of words where meaning
+  of the words, in context, is ambiguous without knowing the pronunciation.
+rationale: The intent of this success criterion is to help people who are blind, people who
+  have low vision, and people with reading disabilities to understand content in cases where
+  meaning depends on pronunciation. Often words or characters have different meanings, each
+  with its own pronunciation. The meaning of such words or characters can usually be determined
+  from the context of the sentence. However, for more complex or ambiguous sentences, or for
+  some languages, the meaning of the word cannot be easily determined or determined at all without
+  knowing the pronunciation. When the sentence is read aloud and the screen reader reads the
+  word using the wrong pronunciation, it can be even more difficult to understand than when
+  read visually. When words are ambiguous or indeterminate unless the pronunciation is known,
+  then providing some means of determining the pronunciation is needed.
+links:
+- target: UR-0010
+  type: implements
+attrs:
+  source_ref: 3.1.6
+  level: AAA
+  wcag_version: '2.0'

@@ -1,0 +1,23 @@
+uid: SR-0033
+type: system_requirement
+status: approved
+title: Character Key Shortcuts (A)
+text: 'If a keyboard shortcut is implemented in content using only letter (including upper-
+  and lower-case letters), punctuation, number, or symbol characters, then at least one of the
+  following is true: Turn off A mechanism is available to turn the shortcut off; Remap A mechanism
+  is available to remap the shortcut to include one or more non-printable keyboard keys (e.g.,
+  Ctrl, Alt); Active only on focus The keyboard shortcut for a user interface component is only
+  active when that component has focus.'
+rationale: The intent of this success criterion is to reduce accidental activation of keyboard
+  shortcuts. Character key shortcuts work well for many keyboard users. However, they can be
+  inappropriate and frustrating for speech input users, whose dictation is interpreted as strings
+  of letters, and for keyboard users who are prone to accidentally hit keys. To rectify this
+  issue, authors need to allow users to turn off or reconfigure shortcuts that are made up of
+  only character keys.
+links:
+- target: UR-0005
+  type: implements
+attrs:
+  source_ref: 2.1.4
+  level: A
+  wcag_version: '2.1'

@@ -1,0 +1,16 @@
+uid: SR-0080
+type: system_requirement
+status: approved
+title: Help (AAA)
+text: Context-sensitive help is available.
+rationale: The intent of this success criterion is to help users avoid making mistakes. Some
+  users with disabilities may be more likely to make mistakes than users without disabilities.
+  Using context-sensitive help, users find out how to perform an operation without losing track
+  of what they are doing.
+links:
+- target: UR-0012
+  type: implements
+attrs:
+  source_ref: 3.3.5
+  level: AAA
+  wcag_version: '2.0'

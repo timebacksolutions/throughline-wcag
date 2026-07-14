@@ -1,0 +1,18 @@
+uid: SR-0008
+type: system_requirement
+status: approved
+title: Extended Audio Description (Prerecorded) (AAA)
+text: Where pauses in foreground audio are insufficient to allow audio descriptions to convey
+  the sense of the video, extended audio description is provided for all prerecorded video content
+  in synchronized media.
+rationale: The intent of this success criterion is to provide people who are blind or visually
+  impaired access to a synchronized media presentation beyond that which can be provided by
+  standard audio description. This is done by periodically freezing the synchronized media presentation
+  and playing additional audio description. The synchronized media presentation is then resumed.
+links:
+- target: UR-0002
+  type: implements
+attrs:
+  source_ref: 1.2.7
+  level: AAA
+  wcag_version: '2.0'

@@ -1,0 +1,22 @@
+uid: SR-0018
+type: system_requirement
+status: approved
+title: Audio Control (A)
+text: 'If any audio on a web page plays automatically for more than 3 seconds, either a mechanism
+  is available to pause or stop the audio, or a mechanism is available to control audio volume
+  independently from the overall system volume level. NoteSince any content that does not meet
+  this success criterion can interfere with a user''s ability to use the whole page, all content
+  on the web page (whether or not it is used to meet other success criteria) must meet this
+  success criterion. See Conformance Requirement 5: Non-Interference.'
+rationale: Individuals who use screen reading software can find it hard to hear the speech output
+  if there is other audio playing at the same time. This difficulty is exacerbated when the
+  screen reader's speech output is software based (as most are today) and is controlled via
+  the same volume control as the sound. Therefore, it is important that the user be able to
+  turn off the background sound.
+links:
+- target: UR-0004
+  type: implements
+attrs:
+  source_ref: 1.4.2
+  level: A
+  wcag_version: '2.0'

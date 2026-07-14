@@ -1,0 +1,19 @@
+uid: SR-0082
+type: system_requirement
+status: approved
+title: Redundant Entry (A)
+text: 'Information previously entered by or provided to the user that is required to be entered
+  again in the same process is either: auto-populated, or available for the user to select.
+  Except when: re-entering the information is essential, the information is required to ensure
+  the security of the content, or previously entered information is no longer valid.'
+rationale: The intent of this success criterion is to ensure that users can successfully complete
+  multi-step processes. It reduces cognitive effort where information is asked for more than
+  once during a process. It also reduces the need to recall information provided in a previous
+  step.
+links:
+- target: UR-0012
+  type: implements
+attrs:
+  source_ref: 3.3.7
+  level: A
+  wcag_version: '2.2'

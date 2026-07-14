@@ -1,0 +1,31 @@
+uid: SR-0079
+type: system_requirement
+status: approved
+title: Error Prevention (Legal, Financial, Data) (AA)
+text: 'For web pages that cause legal commitments or financial transactions for the user to
+  occur, that modify or delete user-controllable data in data storage systems, or that submit
+  user test responses, at least one of the following is true: ReversibleSubmissions are reversible.
+  CheckedData entered by the user is checked for input errors and the user is provided an opportunity
+  to correct them. ConfirmedA mechanism is available for reviewing, confirming, and correcting
+  information before finalizing the submission.'
+rationale: The intent of this success criterion is to help users with disabilities avoid serious
+  consequences as the result of a mistake when performing an action that cannot be reversed.
+  For example, purchasing non-refundable airline tickets or submitting an order to purchase
+  stock in a brokerage account are financial transactions with serious consequences. If users
+  have made a mistake on the date of air travel, they could end up with a ticket for the wrong
+  day that cannot be exchanged. If users made a mistake on the number of stock shares to be
+  purchased, they could end up purchasing more stock than intended. Both of these types of mistakes
+  involve transactions that take place immediately and cannot be altered afterwards, and can
+  be very costly. Likewise, it may be an unrecoverable error if users unintentionally modify
+  or delete data stored in a database that they later need to access, such as their entire travel
+  profile in a travel services website. When referring to modification or deletion of 'user
+  controllable' data, the intent is to prevent mass loss of data such as deleting a file or
+  record. It is not the intent to require a confirmation for each save command or the simple
+  creation or editing of documents, records or other data.
+links:
+- target: UR-0012
+  type: implements
+attrs:
+  source_ref: 3.3.4
+  level: AA
+  wcag_version: '2.0'

@@ -1,0 +1,16 @@
+uid: SR-0047
+type: system_requirement
+status: approved
+title: Multiple Ways (AA)
+text: More than one way is available to locate a web page within a set of web pages except where
+  the web page is the result of, or a step in, a process.
+rationale: The intent of this success criterion is to make it possible for users to locate content
+  in a manner that best meets their needs. Users may find one technique easier or more comprehensible
+  to use than another.
+links:
+- target: UR-0008
+  type: implements
+attrs:
+  source_ref: 2.4.5
+  level: AA
+  wcag_version: '2.0'

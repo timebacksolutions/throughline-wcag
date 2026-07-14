@@ -1,0 +1,12 @@
+uid: UR-0005
+type: user_requirement
+status: approved
+title: Keyboard Accessible — Make all functionality available from a keyboard.
+text: Make all functionality available from a keyboard.
+rationale: Many users cannot use a mouse; all functionality must be reachable and operable from
+  a keyboard or keyboard interface.
+links:
+- target: INT-0002
+  type: derives_from
+attrs:
+  source_ref: '2.1'

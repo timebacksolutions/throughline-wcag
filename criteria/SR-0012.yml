@@ -1,0 +1,19 @@
+uid: SR-0012
+type: system_requirement
+status: approved
+title: Meaningful Sequence (A)
+text: When the sequence in which content is presented affects its meaning, a correct reading
+  sequence can be programmatically determined.
+rationale: The intent of this success criterion is to enable a user agent to provide an alternative
+  presentation of content while preserving the reading order needed to understand the meaning.
+  It is important that it be possible to programmatically determine at least one sequence of
+  the content that makes sense. Content that does not meet this Success Criterion may confuse
+  or disorient users when assistive technology reads the content in the wrong order, or when
+  alternate style sheets or other formatting changes are applied.
+links:
+- target: UR-0003
+  type: implements
+attrs:
+  source_ref: 1.3.2
+  level: A
+  wcag_version: '2.0'

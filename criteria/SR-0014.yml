@@ -1,0 +1,24 @@
+uid: SR-0014
+type: system_requirement
+status: approved
+title: Orientation (AA)
+text: Content does not restrict its view and operation to a single display orientation, such
+  as portrait or landscape, unless a specific display orientation is essential. NoteExamples
+  where a particular display orientation may be essential are a bank check, a piano application,
+  slides for a projector or television, or virtual reality content where content is not necessarily
+  restricted to landscape or portrait display orientation.
+rationale: The intent of this success criterion is to ensure that content displays in the orientation
+  (portrait or landscape) preferred by the user. Some websites and applications automatically
+  set and restrict the screen to a particular display orientation and expect that users will
+  respond by rotating their device to match, but this can create problems. Some users have their
+  devices mounted in a fixed orientation (e.g. on the arm of a power wheelchair). Therefore,
+  websites and applications need to support both orientations by not restricting the orientation.
+  Changes in content or functionality due to the size of display are not covered by this criterion
+  which is focused on restrictions of orientation.
+links:
+- target: UR-0003
+  type: implements
+attrs:
+  source_ref: 1.3.4
+  level: AA
+  wcag_version: '2.1'

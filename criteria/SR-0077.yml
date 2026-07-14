@@ -1,0 +1,20 @@
+uid: SR-0077
+type: system_requirement
+status: approved
+title: Labels or Instructions (A)
+text: Labels or instructions are provided when content requires user input.
+rationale: The intent of this success criterion is to have content authors present instructions
+  or labels that identify the controls in a form so that users know what input data is expected.
+  In the case of radio buttons, checkboxes, comboboxes, or similar controls that provide users
+  with options, each option must have an appropriate label so that users know what they are
+  actually selecting. Instructions or labels may also specify data formats for data entry fields,
+  especially if they are out of the customary formats or if there are specific rules for correct
+  input. Content authors may also choose to make such instructions available to users only when
+  the individual control has focus especially when instructions are long and verbose.
+links:
+- target: UR-0012
+  type: implements
+attrs:
+  source_ref: 3.3.2
+  level: A
+  wcag_version: '2.0'

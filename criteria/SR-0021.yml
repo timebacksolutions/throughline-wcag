@@ -1,0 +1,21 @@
+uid: SR-0021
+type: system_requirement
+status: approved
+title: Images of Text (AA)
+text: 'If the technologies being used can achieve the visual presentation, text is used to convey
+  information rather than images of text except for the following: Customizable The image of
+  text can be visually customized to the user''s requirements; Essential A particular presentation
+  of text is essential to the information being conveyed. NoteLogotypes (text that is part of
+  a logo or brand name) are considered essential.'
+rationale: The intent of this success criterion is to encourage authors, who are using technologies
+  which are capable of achieving their desired default visual presentation, to enable people
+  who require a particular visual presentation of text to be able to adjust the text presentation
+  as needed. This includes people who require the text in a particular font size, foreground
+  and background color, font family, line spacing or alignment.
+links:
+- target: UR-0004
+  type: implements
+attrs:
+  source_ref: 1.4.5
+  level: AA
+  wcag_version: '2.0'

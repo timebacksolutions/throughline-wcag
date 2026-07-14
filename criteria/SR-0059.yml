@@ -1,0 +1,20 @@
+uid: SR-0059
+type: system_requirement
+status: approved
+title: Motion Actuation (A)
+text: 'Functionality that can be operated by device motion or user motion can also be operated
+  by user interface components and responding to the motion can be disabled to prevent accidental
+  actuation, except when: Supported Interface The motion is used to operate functionality through
+  an accessibility supported interface; Essential The motion is essential for the function and
+  doing so would invalidate the activity.'
+rationale: The intent of this success criterion is to ensure that functions triggered by moving
+  a device (for example, shaking or tilting) or by gesturing towards the device (so that sensors
+  like a camera can pick up and interpret the gesturing), can also be operated by more conventional
+  user interface components.
+links:
+- target: UR-0009
+  type: implements
+attrs:
+  source_ref: 2.5.4
+  level: A
+  wcag_version: '2.1'

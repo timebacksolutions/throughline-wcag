@@ -1,0 +1,22 @@
+uid: SR-0046
+type: system_requirement
+status: approved
+title: Link Purpose (In Context) (A)
+text: The purpose of each link can be determined from the link text alone or from the link text
+  together with its programmatically determined link context, except where the purpose of the
+  link would be ambiguous to users in general.
+rationale: The intent of this success criterion is to help users understand the purpose of each
+  link so they can decide whether they want to follow the link. Whenever possible, provide link
+  text that identifies the purpose of the link without needing additional context. Assistive
+  technology has the ability to provide users with a list of links that are on the web page.
+  Link text that is as meaningful as possible will aid users who want to choose from this list
+  of links. Meaningful link text also helps those who wish to tab from link to link. Meaningful
+  links help users choose which links to follow without requiring complicated strategies to
+  understand the page.
+links:
+- target: UR-0008
+  type: implements
+attrs:
+  source_ref: 2.4.4
+  level: A
+  wcag_version: '2.0'

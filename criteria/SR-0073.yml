@@ -1,0 +1,19 @@
+uid: SR-0073
+type: system_requirement
+status: approved
+title: Consistent Identification (AA)
+text: Components that have the same functionality within a set of web pages are identified consistently.
+rationale: The intent of this success criterion is to ensure consistent identification of functional
+  components that appear repeatedly within a set of web pages. A strategy that people who use
+  screen readers use when operating a website is to rely heavily on their familiarity with functions
+  that may appear on different web pages. If identical functions have different labels (or,
+  more generally, a different accessible name) on different web pages, the site will be considerably
+  more difficult to use. It may also be confusing and increase the cognitive load for people
+  with cognitive limitations. Therefore, consistent labeling will help.
+links:
+- target: UR-0011
+  type: implements
+attrs:
+  source_ref: 3.2.4
+  level: AA
+  wcag_version: '2.0'

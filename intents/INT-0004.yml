@@ -1,0 +1,11 @@
+uid: INT-0004
+type: intent
+status: approved
+title: Robust — Content must be robust enough that it can be interpreted by a wide variety of
+  user agents, including assistive technologies.
+text: Content is coded so a wide range of user agents, including current and future assistive
+  technologies, can reliably interpret it — so accessibility survives changes in browsers and
+  tools rather than breaking as technology evolves.
+normative: false
+attrs:
+  source_ref: Principle 4

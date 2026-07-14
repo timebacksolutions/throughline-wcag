@@ -1,0 +1,37 @@
+uid: SR-0001
+type: system_requirement
+status: approved
+title: Non-text Content (A)
+text: All non-text content that is presented to the user has a text alternative that serves
+  the equivalent purpose, except for the situations listed below. Controls, Input If non-text
+  content is a control or accepts user input, then it has a name that describes its purpose.
+  (Refer to Success Criterion 4.1.2 for additional requirements for controls and content that
+  accepts user input.) Time-Based Media If non-text content is time-based media, then text alternatives
+  at least provide descriptive identification of the non-text content. (Refer to Guideline 1.2
+  for additional requirements for media.) Test If non-text content is a test or exercise that
+  would be invalid if presented in text, then text alternatives at least provide descriptive
+  identification of the non-text content. Sensory If non-text content is primarily intended
+  to create a specific sensory experience, then text alternatives at least provide descriptive
+  identification of the non-text content. CAPTCHA If the purpose of non-text content is to confirm
+  that content is being accessed by a person rather than a computer, then text alternatives
+  that identify and describe the purpose of the non-text content are provided, and alternative
+  forms of CAPTCHA using output modes for different types of sensory perception are provided
+  to accommodate different disabilities. Decoration, Formatting, Invisible If non-text content
+  is pure decoration, is used only for visual formatting, or is not presented to users, then
+  it is implemented in a way that it can be ignored by assistive technology.
+rationale: The intent of this success criterion is to make information conveyed by non-text
+  content accessible through the use of a text alternative. Text alternatives are a primary
+  way for making information accessible because they can be rendered through any sensory modality
+  (for example, visual, auditory or tactile) to match the needs of the user. Providing text
+  alternatives allows the information to be rendered in a variety of ways by a variety of user
+  agents. For example, people who cannot see a picture can have the text alternative read aloud
+  using synthesized speech. People who cannot hear an audio file can have the text alternative
+  displayed so that they can read it. In the future, text alternatives will also allow information
+  to be more easily translated into sign language or into a simpler form of the same language.
+links:
+- target: UR-0001
+  type: implements
+attrs:
+  source_ref: 1.1.1
+  level: A
+  wcag_version: '2.0'

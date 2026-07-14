@@ -1,0 +1,12 @@
+uid: UR-0010
+type: user_requirement
+status: approved
+title: Readable — Make text content readable and understandable.
+text: Make text content readable and understandable.
+rationale: Text must be readable and its language machine-identifiable so assistive technology
+  can pronounce it and users can understand unusual words and abbreviations.
+links:
+- target: INT-0003
+  type: derives_from
+attrs:
+  source_ref: '3.1'

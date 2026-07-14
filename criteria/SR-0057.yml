@@ -1,0 +1,25 @@
+uid: SR-0057
+type: system_requirement
+status: approved
+title: Pointer Cancellation (A)
+text: 'For functionality that can be operated using a single pointer, at least one of the following
+  is true: No Down-Event The down-event of the pointer is not used to execute any part of the
+  function; Abort or Undo Completion of the function is on the up-event, and a mechanism is
+  available to abort the function before completion or to undo the function after completion;
+  Up Reversal The up-event reverses any outcome of the preceding down-event; Essential Completing
+  the function on the down-event is essential. Note 1Functions that emulate a keyboard or numeric
+  keypad key press are considered essential. Note 2This requirement applies to web content that
+  interprets pointer actions (i.e., this does not apply to actions that are required to operate
+  the user agent or assistive technology).'
+rationale: The intent of this success criterion is to make it easier for users to prevent accidental
+  or erroneous pointer input. People with various disabilities can inadvertently initiate touch
+  or mouse events with unwanted results. Each of the following subsections roughly aligns with
+  the bullets of this Success Criterion, and outlines a means of allowing users to cancel pointer
+  operations.
+links:
+- target: UR-0009
+  type: implements
+attrs:
+  source_ref: 2.5.2
+  level: A
+  wcag_version: '2.1'

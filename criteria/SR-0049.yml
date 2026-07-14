@@ -1,0 +1,15 @@
+uid: SR-0049
+type: system_requirement
+status: approved
+title: Focus Visible (AA)
+text: Any keyboard operable user interface has a mode of operation where the keyboard focus
+  indicator is visible.
+rationale: The purpose of this success criterion is to help a person know which element has
+  the keyboard focus.
+links:
+- target: UR-0008
+  type: implements
+attrs:
+  source_ref: 2.4.7
+  level: AA
+  wcag_version: '2.0'

@@ -1,0 +1,28 @@
+uid: SR-0083
+type: system_requirement
+status: approved
+title: Accessible Authentication (Minimum) (AA)
+text: 'A cognitive function test (such as remembering a password or solving a puzzle) is not
+  required for any step in an authentication process unless that step provides at least one
+  of the following: Alternative Another authentication method that does not rely on a cognitive
+  function test. Mechanism A mechanism is available to assist the user in completing the cognitive
+  function test. Object Recognition The cognitive function test is to recognize objects. Personal
+  Content The cognitive function test is to identify non-text content the user provided to the
+  website. Note 1"Object recognition" and "Personal content" may be represented by images, video,
+  or audio. Note 2Examples of mechanisms that satisfy this criterion include: support for password
+  entry by password managers to reduce memory need, and copy and paste to reduce the cognitive
+  burden of re-typing.'
+rationale: The purpose of this success criterion is to ensure there is an accessible, easy-to-use,
+  and secure method for users to authenticate when logging into an existing account. As the
+  most prevalent form of authentication, websites commonly rely on usernames and passwords to
+  log in. However, memorizing a username and password places a very high or impossible burden
+  upon people with certain cognitive disabilities, as do additional steps often added to authentication
+  processes. For instance, the need to transcribe a one-time verification code or requiring
+  a puzzle to be solved.
+links:
+- target: UR-0012
+  type: implements
+attrs:
+  source_ref: 3.3.8
+  level: AA
+  wcag_version: '2.2'

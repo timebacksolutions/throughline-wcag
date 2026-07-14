@@ -1,0 +1,29 @@
+standard-wcag
+Copyright 2026 Time Back Solutions Limited
+
+This product includes work developed by Time Back Solutions Limited.
+
+Licensed under the Apache License, Version 2.0. See the LICENSE file for the
+full terms.
+
+This repository is a throughline *source*: a requirements graph, not a program. It
+re-expresses the Web Content Accessibility Guidelines (WCAG) 2.2 as a grounded IDD graph
+so consuming projects can compose it with throughline-compose.
+
+WCAG 2.2 is a W3C Recommendation. The success-criterion text (each item's `text`) and the
+"Intent of this Success Criterion" paragraphs (each criterion's `rationale`) are taken from:
+
+  - Web Content Accessibility Guidelines (WCAG) 2.2 — https://www.w3.org/TR/WCAG22/
+  - Understanding WCAG 2.2 — https://www.w3.org/WAI/WCAG22/Understanding/
+  - Canonical WCAG 2 JSON — https://www.w3.org/WAI/WCAG22/wcag.json
+
+That content is © W3C and is used under the W3C Document License
+(https://www.w3.org/copyright/document-license/) and the terms in
+https://github.com/w3c/wcag/blob/main/11ty/json/README.md, which permit reuse with clear
+attribution and without changing the content. Success-criterion text is reproduced from
+the Recommendation; the principle intents and guideline rationales in this repository are
+this project's own faithful summaries and are clearly additional to the W3C text.
+
+The repository's structure, tooling and Apache-2.0 licence cover this project's own work
+(the throughline graph, generator and configuration), not the underlying W3C content.
+See https://www.w3.org/TR/WCAG22/ for the authoritative source.

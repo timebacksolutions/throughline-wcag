@@ -1,0 +1,20 @@
+uid: SR-0045
+type: system_requirement
+status: approved
+title: Focus Order (A)
+text: If a web page can be navigated sequentially and the navigation sequences affect meaning
+  or operation, focusable components receive focus in an order that preserves meaning and operability.
+rationale: The intent of this success criterion is to ensure that when users navigate sequentially
+  through content, they encounter information in an order that is consistent with the meaning
+  of the content and can be operated from the keyboard. This reduces confusion by letting users
+  form a consistent mental model of the content. There may be different orders that reflect
+  logical relationships in the content. For example, moving through components in a table one
+  row at a time or one column at a time both reflect the logical relationships in the content.
+  Either order may satisfy this success criterion.
+links:
+- target: UR-0008
+  type: implements
+attrs:
+  source_ref: 2.4.3
+  level: A
+  wcag_version: '2.0'

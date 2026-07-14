@@ -1,0 +1,31 @@
+uid: SR-0055
+type: system_requirement
+status: approved
+title: Focus Appearance (AAA)
+text: 'When the keyboard focus indicator is visible, an area of the focus indicator meets all
+  the following: is at least as large as the area of a 2 CSS pixel thick perimeter of the unfocused
+  component or sub-component, and has a contrast ratio of at least 3:1 between the same pixels
+  in the focused and unfocused states. Exceptions: The focus indicator is determined by the
+  user agent and cannot be adjusted by the author, or The focus indicator and the indicator''s
+  background color are not modified by the author. Note 1What is perceived as the user interface
+  component or sub-component (to determine the perimeter) depends on its visual presentation.
+  The visual presentation includes the component''s visible content, border, and component-specific
+  background. It does not include shadow and glow effects outside the component''s content,
+  background, or border. Note 2Examples of sub-components that may receive a focus indicator
+  are menu items in an opened drop-down menu, or focusable cells in a grid. Note 3Contrast calculations
+  can be based on colors defined within the technology (such as HTML, CSS, and SVG). Pixels
+  modified by user agent resolution enhancements and anti-aliasing can be ignored.'
+rationale: The purpose of this success criterion is to ensure a keyboard focus indicator is
+  clearly visible and discernible. Focus Appearance is closely related to 2.4.7 Focus Visible
+  and 1.4.11 Non-text Contrast. Focus Visible requires that a visible focus indicator exists
+  while a component has keyboard focus; Focus Appearance defines a minimum level of visibility.
+  Where Non-text Contrast requires a component to have adequate contrast against the background
+  in each of its states, Focus Appearance requires sufficient contrast for the focus indicator
+  itself.
+links:
+- target: UR-0008
+  type: implements
+attrs:
+  source_ref: 2.4.13
+  level: AAA
+  wcag_version: '2.2'

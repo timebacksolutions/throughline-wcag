@@ -1,0 +1,18 @@
+uid: SR-0025
+type: system_requirement
+status: approved
+title: Images of Text (No Exception) (AAA)
+text: Images of text are only used for pure decoration or where a particular presentation of
+  text is essential to the information being conveyed. NoteLogotypes (text that is part of a
+  logo or brand name) are considered essential.
+rationale: The intent of this success criterion is to enable people who require a particular
+  visual presentation of text to be able to adjust the text presentation as required. This includes
+  people who require the text in a particular font size, foreground and background color, font
+  family, line spacing or alignment.
+links:
+- target: UR-0004
+  type: implements
+attrs:
+  source_ref: 1.4.9
+  level: AAA
+  wcag_version: '2.0'
