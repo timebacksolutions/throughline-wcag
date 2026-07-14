@@ -1,11 +1,16 @@
 [project]
-name = "W3C WCAG 2.2 (throughline source)"
+name = "W3C WCAG (throughline source)"
 format_version = 2
 
 # A throughline *source*: a standalone graph a consuming project composes via
 # throughline-compose, importing it under a namespace (e.g. `wcag`) and referencing
 # criteria as `wcag:SR-0037`. The UIDs here are this source's own and immutable; the
 # WCAG number (`1.4.3`, `Principle 1`) lives in `attrs.source_ref`, never in the UID.
+#
+# EDITIONS ARE BRANCHES. Each published WCAG version is a complete, separate standard
+# selected by git ref — `main` = 2.2, `release/2.1`, `release/2.0` — and a branch holds
+# EXACTLY that version's items. There is no all-versions-on-one-graph and no version
+# attribute to filter on; a consumer pins the ref for the edition it wants.
 
 [grounding]
 root_types = ["intent"]
@@ -26,28 +31,20 @@ ai_origins = ["ai", "hybrid"]
 attrs.source_ref = { required = true }
 
 [types.system_requirement]
-# source_ref = the WCAG SC number ("1.4.3"); level = A/AA/AAA; wcag_version = the version
-# that introduced the criterion, so one graph carries 2.0/2.1/2.2. Optional wcag_removed
-# marks a criterion dropped in a later version (only 4.1.1 Parsing, removed in 2.2).
+# source_ref = the WCAG SC number ("1.4.3"); level = A/AA/AAA. wcag_version records the
+# version that first introduced the criterion — PROVENANCE ONLY ("this first appeared in
+# 2.1"), never the mechanism for selecting an edition. The edition is the git ref; every
+# criterion on a branch belongs to that branch's version by construction.
 attrs.source_ref = { required = true }
 attrs.level = { required = true, values = ["A", "AA", "AAA"] }
 attrs.wcag_version = { required = true, values = ["2.0", "2.1", "2.2"] }
-# wcag_removed = the version that withdrew the criterion, making it a tombstone
-# (status: deleted). Present-in(V) iff wcag_version <= V < wcag_removed. Only
-# 4.1.1 Parsing carries it (removed in 2.2). Removal is not supersession: a
-# withdrawn criterion with a *named* successor instead gets a `superseded_by` link.
-attrs.wcag_removed = { required = false, values = ["2.2"] }
 
 [links]
-types = ["derives_from", "implements", "relates", "superseded_by"]
+types = ["derives_from", "implements", "relates"]
 
 [link_rules]
 derives_from = { from = ["user_requirement"], to = ["intent"] }
 implements   = { from = ["system_requirement"], to = ["user_requirement"] }
-# superseded_by points a withdrawn criterion at the criterion that replaces it —
-# directional SC→SC. Unused today (4.1.1 was removed without a named successor);
-# wired so a future edition where a criterion is genuinely replaced needs data, not schema.
-superseded_by = { from = ["system_requirement"], to = ["system_requirement"] }
 
 [status]
 values = ["proposed", "draft", "deferred", "approved", "ratified", "implemented",

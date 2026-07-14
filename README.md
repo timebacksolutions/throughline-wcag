@@ -44,34 +44,40 @@ co-equal root intents** (all `normative: false`):
   WCAG's hierarchy is strict (one principle per guideline), so a criterion grounds up to a
   principle through `implements` → `derives_from` with no extra edge.
 
-## Versions and conformance levels — attributes, not forks
+## Editions are branches — one version per ref
 
-WCAG 2.1 is a superset of 2.0 and 2.2 a near-superset of 2.1, so **one graph carries all
-three versions at once** — you don't fork the repo or duplicate criteria per version:
+Each published WCAG version is a **complete, separate standard**, exactly as ASVS v5.0.0 is
+a whole standard rather than "ASVS v4 plus a version attribute". WCAG 2.2 incorporates
+criteria first published in 2.0 and 2.1, but a user of WCAG 2.2 wants *the WCAG 2.2 edition*
+— not two versions overlaid and filtered apart. So this source cuts each version onto its
+own branch, and a consumer selects the edition it wants by **pinning a git ref**:
 
-- `attrs.wcag_version` — the version that **introduced** the criterion (`2.0` / `2.1` /
-  `2.2`). Filter `wcag_version in {2.0, 2.1}` to get "the WCAG 2.1 set".
-- `attrs.level` — the conformance grade (`A` / `AA` / `AAA`).
+| Edition | Branch | Tag | Live criteria |
+|---|---|---|---|
+| WCAG 2.2 | `main` | `v2.2.x` | 86 |
+| WCAG 2.1 | `release/2.1` | `v2.1.0` | 78 |
+| WCAG 2.0 | `release/2.0` | `v2.0.0` | 61 |
+
+A branch holds **exactly its version's items** — no version attribute to filter on, no
+removed-criteria to skip. The facets that remain are genuine *sub-filters within* an
+edition, never selectors for it:
+
+- `attrs.level` — the conformance grade (`A` / `AA` / `AAA`), used to pick a target such
+  as "WCAG 2.2 AA".
 - `attrs.source_ref` — the published WCAG number (`1.4.3`), never the UID.
-- `attrs.wcag_removed` — a **declared, validated** attribute (optional, values `{2.2}`)
-  naming the version that **withdrew** the criterion. A criterion is present in version `V`
-  exactly when `wcag_version ≤ V < wcag_removed`.
-- The one criterion removed in 2.2 — **4.1.1 Parsing** — is kept as a throughline
-  **tombstone** (`status: deleted`, `attrs.wcag_removed: "2.2"`), never dropped, so UID
-  history stays intact.
+- `attrs.wcag_version` — **provenance only**: the version that first introduced the
+  criterion, so a reader can see "this first appeared in 2.1". It is *not* how you select an
+  edition; the ref is.
 
-**Removed is not the same as superseded.** 4.1.1 was *withdrawn without a named successor*,
-so it is a pure tombstone. When a future edition **replaces** a criterion with a named one,
-the withdrawn criterion also carries a directional `superseded_by` link (`system_requirement`
-→ `system_requirement`) pointing at its replacement — the *why* survives the swap. That link
-type and its endpoint rule are declared in `throughline.toml`; WCAG 2.2 has no such case, so
-no `superseded_by` edge exists yet (the generator's `SUPERSEDED_BY` map is empty). The
-schema is ready, so a real supersede is a data change, not a schema change.
+**UIDs are stable across editions.** The release branches are cut from `main`, so a
+criterion shared by two versions keeps the same UID in both (`1.4.3` is `SR-0019`
+everywhere it appears). 4.1.1 Parsing, retired in 2.2, remains a throughline **tombstone**
+(`status: deleted`) on `main` — throughline never erases a retired UID — and is live on the
+2.0/2.1 editions where the criterion belongs.
 
-**Editions are git tags of this one repo.** `v2.2.0` tags the WCAG 2.2 edition; a future
-WCAG 3.0 (a different model) would be `v3.0.0` on this same repo. A consumer pins
-`wcag@v2.2.0`. This is the same editions-as-tags model as `standard-asvs`, chosen over
-per-version folders because the versions are additive and share one immutable UID space.
+**A future WCAG 3.0** (a different model, not an additive revision) would branch the same
+way — `main` advances to it, `release/2.2` preserves this edition — the same
+release-branch-per-edition model `standard-asvs` uses for v4 → v5.
 
 ## Modelling conventions
 
@@ -79,9 +85,10 @@ per-version folders because the versions are additive and share one immutable UI
   number. The WCAG number lives in `attrs.source_ref`.
 - **Success-criterion `text`** is the criterion's normative statement; **`rationale`** is
   its published Intent. Both come from the authoritative W3C sources (see NOTICE).
-- The graph is generated from the vendored canonical JSON by `tools/generate.py`
-  (permanent-UID, additive); re-run it after `tools/fetch_intents.py` refreshes the Intent
-  paragraphs. Editing the spec means editing the data + generator, not the YAML by hand.
+- The graph is generated from the vendored canonical JSON by `tools/generate.py`, which cuts
+  a single edition — the version in `tools/EDITION` (`2.2` on `main`) — keeping permanent
+  UIDs and pruning any criterion the version doesn't publish. Editing the spec means editing
+  the data + generator, not the YAML by hand.
 
 ## Composing it
 
@@ -90,7 +97,7 @@ In a consuming project's `throughline.toml`:
 ```toml
 [sources.wcag]
 url = "https://github.com/rhodium-org/standard-wcag"
-ref = "v2.2.0"
+ref = "v2.2.2"        # or v2.1.0 / v2.0.0 for an earlier edition
 ```
 
 Then reference a criterion as `wcag:SR-0019` (Contrast Minimum) from your own items.

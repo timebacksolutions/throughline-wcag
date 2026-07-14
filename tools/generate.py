@@ -1,60 +1,64 @@
 #!/usr/bin/env python3
-"""Generate the WCAG 2.2 throughline source from the W3C canonical JSON.
+"""Generate a single-version WCAG throughline source from the W3C canonical JSON.
 
-Unlike the GOV.UK Design System (prose only), WCAG publishes a canonical machine-readable
-serialisation — vendored here at ``tools/wcag-2.2.json`` (from
-https://www.w3.org/WAI/WCAG22/wcag.json). This script turns it into throughline items,
-mirroring the ASVS generator's discipline:
+WCAG publishes a canonical machine-readable serialisation — vendored here at
+``tools/wcag-2.2.json`` (from https://www.w3.org/WAI/WCAG22/wcag.json), which carries, per
+Success Criterion, the set of WCAG versions it belongs to. This script turns *one* version
+into throughline items.
 
-* **UIDs are permanent.** The mapping from a principle/guideline/criterion to a throughline
-  UID is derived from the items already on disk, keyed by ``attrs.source_ref`` (the WCAG
-  number: ``"Principle 1"``, ``"1.4"``, ``"1.4.3"``). Anything without an item yet gets a
-  freshly allocated UID in document order, continuing from the highest in use; a UID, once
-  allocated, never moves. Item bodies are regenerated from the JSON each run.
+**Each published WCAG version is a complete, separate edition — selected by ref, not by an
+attribute.** WCAG 2.2 contains items first published in 2.0 and 2.1, but it is a whole
+standard in its own right, exactly as ASVS v5.0.0 is. A consumer picks the edition it wants
+by pinning a git ref (``v2.2.x`` on ``main``, ``v2.1.0`` on ``release/2.1``,
+``v2.0.0`` on ``release/2.0``) and gets *only* that version's items — no version attribute
+to filter on, no removed-criteria tombstones to skip. The edition to build is read from
+``tools/EDITION`` (or ``argv[1]``).
 
 **The "why" spine is genuinely multi-root — the point of putting WCAG on the list.**
 WCAG's four Principles (Perceivable, Operable, Understandable, Robust) are four *distinct*
 reasons content must behave, so they are **four root intents** (INT-0001..INT-0004), not
 one umbrella. Each Guideline is a ``user_requirement`` that ``derives_from`` its own
 principle; each Success Criterion is a ``system_requirement`` that ``implements`` its
-guideline. Because WCAG's hierarchy is strict (each guideline sits under exactly one
-principle), grounding a criterion to a principle needs no extra edge — it flows up
-implements→derives_from. The leaf *why* is preserved too: every criterion's ``rationale``
-is the W3C "Intent of this Success Criterion" lead paragraph (``tools/fetch_intents.py``).
+guideline. WCAG's hierarchy is strict (each guideline sits under exactly one principle), so
+grounding a criterion to a principle needs no extra edge. The leaf *why* is preserved: every
+criterion's ``rationale`` is the W3C "Intent of this Success Criterion" lead paragraph.
 
-**Versions are attributes on one graph, not tags or folders.** WCAG 2.1 is a superset of
-2.0 and 2.2 a near-superset of 2.1, so one graph carries all three: ``attrs.wcag_version``
-records the version that *introduced* each criterion; ``attrs.level`` the A/AA/AAA grade.
-The single criterion removed in 2.2 (4.1.1 Parsing) is kept as a throughline **tombstone**
-(``status: deleted``, ``attrs.wcag_removed: "2.2"``) — never dropped. Version *releases*
-are git tags of this one repo (v2.2.0, and a future v3.0.0), the same editions-as-tags
-model as standard-asvs.
+**UIDs are permanent and stable across editions.** The mapping from a
+principle/guideline/criterion to a throughline UID is keyed by ``attrs.source_ref`` (the
+WCAG number: ``"Principle 1"``, ``"1.4"``, ``"1.4.3"``) and read from the items already on
+disk. A criterion shared by two editions keeps the same UID in both, because the release
+branches are cut from ``main`` and inherit its allocation; anything without an item yet gets
+a freshly allocated UID in document order. When building a version, items whose source_ref
+is absent from that version are **deleted** from the edition — the branch holds exactly the
+criteria that version publishes.
 
-**Removal is distinguished from supersession.** 4.1.1 was withdrawn *without* a named
-successor, so it is a pure tombstone. A criterion *replaced by a named successor* would
-additionally carry a directional ``superseded_by`` link (SC→SC) recorded in the
-``SUPERSEDED_BY`` map below. WCAG 2.2 has no such case, so the map is empty and the schema
-sits ready — a future edition that supersedes a criterion adds data, not schema.
+``attrs.wcag_version`` records the version that *introduced* each criterion, as provenance
+only — a reader can see "this first appeared in 2.1" — never as the mechanism for selecting a
+version. That is what the ref is for.
 
-Usage:  python tools/generate.py   (run tools/fetch_intents.py first if intents are stale)
+Usage:  python tools/generate.py [VERSION]   (VERSION defaults to tools/EDITION, then "2.2")
 """
 from __future__ import annotations
 
 import json
 import re
+import sys
 from pathlib import Path
 
 import yaml
 
 REPO = Path(__file__).resolve().parent.parent
 TOOLS = REPO / "tools"
-INTENTS_DIR = REPO / "intents"       # intent (principle roots), prefix INT
+INTENTS_DIR = REPO / "intents"        # intent (principle roots), prefix INT
 GUIDELINES_DIR = REPO / "guidelines"  # user_requirement, prefix UR
 CRITERIA_DIR = REPO / "criteria"      # system_requirement, prefix SR
 SPEC = REPO / "docs" / "spec.md"
+EDITION_FILE = TOOLS / "EDITION"
 
 WCAG = json.loads((TOOLS / "wcag-2.2.json").read_text(encoding="utf-8"))
 INTENTS = json.loads((TOOLS / "understanding_intents.json").read_text(encoding="utf-8"))
+
+VERSION_ORDER = {"2.0": 0, "2.1": 1, "2.2": 2}
 
 # The four principles are four co-equal roots — each a distinct "why". Text expands the
 # principle's own statement into who it serves; faithful to POUR, not invented scope.
@@ -111,15 +115,13 @@ GUIDELINE_RATIONALE = {
            "technologies so it keeps working across browsers, devices and future tools.",
 }
 
-VERSION_ORDER = {"2.0": 0, "2.1": 1, "2.2": 2}
 
-# Removal is not supersession. A criterion *withdrawn without a named replacement* is a
-# pure tombstone (wcag_removed attr only) — that is 4.1.1 Parsing, obsoleted in 2.2. A
-# criterion *replaced by a named successor* additionally gets a directional
-# `superseded_by` edge to the SC that replaces it. WCAG 2.2 has no such case, so this map
-# is empty; a future edition that genuinely supersedes a criterion adds one entry
-# ("<old SC num>": ["<new SC num>", ...]) — data, not schema.
-SUPERSEDED_BY: dict[str, list[str]] = {}
+def edition() -> str:
+    if len(sys.argv) > 1:
+        return sys.argv[1].strip()
+    if EDITION_FILE.exists():
+        return EDITION_FILE.read_text(encoding="utf-8").strip()
+    return "2.2"
 
 
 def strip(html: str) -> str:
@@ -133,42 +135,70 @@ def _dump(path: Path, item: dict) -> None:
     )
 
 
-def _scan(dir_: Path) -> dict[str, str]:
-    ref2uid: dict[str, str] = {}
+def _items(dir_: Path):
+    """Yield (path, data) for every real item file, skipping dir manifests (.register.yml)."""
     for f in dir_.glob("*.yml"):
-        data = yaml.safe_load(f.read_text(encoding="utf-8"))
+        if f.name.startswith("."):
+            continue
+        yield f, yaml.safe_load(f.read_text(encoding="utf-8"))
+
+
+def _scan(dir_: Path, include_deleted: bool = False) -> dict[str, str]:
+    """Map source_ref -> uid for live items (tombstones excluded unless asked)."""
+    ref2uid: dict[str, str] = {}
+    for _, data in _items(dir_):
+        if not include_deleted and data.get("status") == "deleted":
+            continue
         ref = (data.get("attrs") or {}).get("source_ref")
         if ref:
             ref2uid[ref] = data["uid"]
     return ref2uid
 
 
-def _max(ref2uid: dict[str, str], prefix: str) -> int:
-    return max((int(u.split("-")[1]) for u in ref2uid.values()
-               if u.startswith(prefix + "-")), default=0)
+def _high_water(dir_: Path, prefix: str) -> int:
+    """Highest UID number ever used in this register, INCLUDING tombstones — a retired
+    UID is never handed out again."""
+    return max((int(data["uid"].split("-")[1]) for _, data in _items(dir_)
+               if data["uid"].startswith(prefix + "-")), default=0)
 
 
-def generate() -> dict[str, int]:
+def _prune(dir_: Path, keep_refs: set[str]) -> int:
+    """Delete items whose source_ref is not published by this edition. A tombstone
+    (status: deleted) is a permanent death-record and is never erased."""
+    removed = 0
+    for f, data in _items(dir_):
+        if data.get("status") == "deleted":
+            continue
+        if (data.get("attrs") or {}).get("source_ref") not in keep_refs:
+            f.unlink()
+            removed += 1
+    return removed
+
+
+def generate(version: str) -> dict[str, int]:
     int_ref = _scan(INTENTS_DIR)
     ur_ref = _scan(GUIDELINES_DIR)
     sr_ref = _scan(CRITERIA_DIR)
-    n_int = _max(int_ref, "INT") + 1
-    n_ur = _max(ur_ref, "UR") + 1
-    n_sr = _max(sr_ref, "SR") + 1
+    n_int = _high_water(INTENTS_DIR, "INT") + 1
+    n_ur = _high_water(GUIDELINES_DIR, "UR") + 1
+    n_sr = _high_water(CRITERIA_DIR, "SR") + 1
 
-    counts = {"int": 0, "ur": 0, "sr": 0, "tombstone": 0}
-
-    # Pre-allocate every SC's UID in document order *before* emitting any item, so a
-    # `superseded_by` edge can resolve a successor that appears later in the document.
-    for p in WCAG["principles"]:
-        for g in p["guidelines"]:
-            for sc in g["successcriteria"]:
-                num = sc["num"]
-                if num not in sr_ref:
-                    sr_ref[num] = f"SR-{n_sr:04d}"; n_sr += 1; counts["sr"] += 1
+    counts = {"int": 0, "ur": 0, "sr": 0}
+    keep_int: set[str] = set()
+    keep_ur: set[str] = set()
+    keep_sr: set[str] = set()
 
     for p in WCAG["principles"]:
+        # A guideline is in this edition iff it has at least one criterion in this version.
+        present_guidelines = [
+            g for g in p["guidelines"]
+            if any(version in sc["versions"] for sc in g["successcriteria"])
+        ]
+        if not present_guidelines:
+            continue
+
         pref = f"Principle {p['num']}"
+        keep_int.add(pref)
         int_uid = int_ref.get(pref)
         if int_uid is None:
             int_uid = f"INT-{n_int:04d}"; n_int += 1; int_ref[pref] = int_uid; counts["int"] += 1
@@ -182,8 +212,9 @@ def generate() -> dict[str, int]:
             "attrs": {"source_ref": pref},
         })
 
-        for g in p["guidelines"]:
+        for g in present_guidelines:
             gref = g["num"]
+            keep_ur.add(gref)
             ur_uid = ur_ref.get(gref)
             if ur_uid is None:
                 ur_uid = f"UR-{n_ur:04d}"; n_ur += 1; ur_ref[gref] = ur_uid; counts["ur"] += 1
@@ -199,49 +230,52 @@ def generate() -> dict[str, int]:
             })
 
             for sc in g["successcriteria"]:
+                if version not in sc["versions"]:
+                    continue
                 num = sc["num"]
-                sr_uid = sr_ref[num]  # pre-allocated above
-                versions = sc["versions"]
-                introduced = min(versions, key=lambda v: VERSION_ORDER[v])
-                removed = "2.2" not in versions  # only 4.1.1 Parsing
-                level = sc["level"] or "A"       # 4.1.1 was Level A before removal
-                attrs = {"source_ref": num, "level": level, "wcag_version": introduced}
-                links = [{"target": ur_uid, "type": "implements"}]
-                for succ in SUPERSEDED_BY.get(num, []):
-                    links.append({"target": sr_ref[succ], "type": "superseded_by"})
-                item = {
+                keep_sr.add(num)
+                sr_uid = sr_ref.get(num)
+                if sr_uid is None:
+                    sr_uid = f"SR-{n_sr:04d}"; n_sr += 1; sr_ref[num] = sr_uid; counts["sr"] += 1
+                introduced = min(sc["versions"], key=lambda v: VERSION_ORDER[v])
+                level = sc["level"] or "A"
+                _dump(CRITERIA_DIR / f"{sr_uid}.yml", {
                     "uid": sr_uid,
                     "type": "system_requirement",
-                    "status": "deleted" if removed else "approved",
+                    "status": "approved",
                     "title": f"{sc['handle']} ({level})",
                     "text": strip(sc["content"]) or strip(sc["title"]),
                     "rationale": INTENTS.get(num, ""),
-                    "links": links,
-                    "attrs": attrs,
-                }
-                if removed:
-                    item["attrs"]["wcag_removed"] = "2.2"
-                    counts["tombstone"] += 1
-                _dump(CRITERIA_DIR / f"{sr_uid}.yml", item)
+                    "links": [{"target": ur_uid, "type": "implements"}],
+                    "attrs": {"source_ref": num, "level": level, "wcag_version": introduced},
+                })
 
+    counts["pruned"] = (_prune(INTENTS_DIR, keep_int)
+                        + _prune(GUIDELINES_DIR, keep_ur)
+                        + _prune(CRITERIA_DIR, keep_sr))
     return counts
 
 
 SPEC_HEADER = """\
-# WCAG 2.2 — throughline source
+# WCAG {version} — throughline source
 
 Generated from the graph. Prose between `tl:item` / `tl:table` markers is injected by
 `tl docs` — edit the YAML items (or `tools/wcag-2.2.json` + `tools/generate.py`), not the
 injected regions.
+
+This branch is the **complete WCAG {version} edition** — every Success Criterion that
+version publishes, and nothing else. WCAG {version} incorporates criteria first introduced
+in earlier versions, but it is a whole standard in its own right (as ASVS v5.0.0 is): a
+consumer selects it by pinning this ref, not by filtering a version attribute. Other WCAG
+versions live on their own branches (`main` = 2.2, `release/2.1`, `release/2.0`).
 
 The "why" spine is **multi-root by design**: WCAG's four Principles are four distinct
 reasons — four root `intent`s, not one umbrella. Each Guideline is a `user_requirement`
 that `derives_from` its principle and carries its own `rationale`; each Success Criterion
 is a `system_requirement` that `implements` its guideline, with the W3C "Intent of this
 Success Criterion" as its `rationale`. The WCAG number lives in `attrs.source_ref`
-(`"1.4.3"`), the grade in `attrs.level`, and the version that introduced it in
-`attrs.wcag_version` — so one graph carries WCAG 2.0, 2.1 and 2.2 at once. 4.1.1 Parsing,
-removed in 2.2, is kept as a tombstone.
+(`"1.4.3"`), the grade in `attrs.level`, and the version that first introduced the
+criterion in `attrs.wcag_version` — provenance only, never a selector.
 
 ## The four principles — the roots
 
@@ -259,12 +293,17 @@ removed in 2.2, is kept as a tombstone.
 """
 
 
-def generate_spec() -> None:
-    ur_ref = _scan(GUIDELINES_DIR)  # gref -> UR uid
-    parts = [SPEC_HEADER]
+def generate_spec(version: str) -> None:
+    int_ref = _scan(INTENTS_DIR)
+    ur_ref = _scan(GUIDELINES_DIR)
+    parts = [SPEC_HEADER.format(version=version)]
     for p in WCAG["principles"]:
+        if f"Principle {p['num']}" not in int_ref:
+            continue
         parts.append(f"# Principle {p['num']}: {p['handle']}\n")
         for g in p["guidelines"]:
+            if g["num"] not in ur_ref:
+                continue
             parts.append(f"## {g['num']} {g['handle']}\n")
             parts.append(f"<!-- tl:item {ur_ref[g['num']]} -->\n<!-- tl:end -->\n")
             flt = ("type == 'system_requirement' and "
@@ -274,11 +313,17 @@ def generate_spec() -> None:
 
 
 def main() -> int:
-    c = generate()
-    generate_spec()
+    version = edition()
+    if version not in VERSION_ORDER:
+        print(f"unknown WCAG version {version!r}; expected one of {sorted(VERSION_ORDER)}")
+        return 2
+    c = generate(version)
+    generate_spec(version)
+    print(f"edition: WCAG {version}")
     print(f"intents:    {c['int']} new (principles)")
     print(f"guidelines: {c['ur']} new (user_requirements)")
-    print(f"criteria:   {c['sr']} new (system_requirements), {c['tombstone']} tombstoned")
+    print(f"criteria:   {c['sr']} new (system_requirements)")
+    print(f"pruned:     {c['pruned']} item(s) not in this edition")
     print(f"totals: {len(list(INTENTS_DIR.glob('INT-*.yml')))} INT, "
           f"{len(list(GUIDELINES_DIR.glob('UR-*.yml')))} UR, "
           f"{len(list(CRITERIA_DIR.glob('SR-*.yml')))} SR")

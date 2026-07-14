@@ -4,14 +4,19 @@ Generated from the graph. Prose between `tl:item` / `tl:table` markers is inject
 `tl docs` — edit the YAML items (or `tools/wcag-2.2.json` + `tools/generate.py`), not the
 injected regions.
 
+This branch is the **complete WCAG 2.2 edition** — every Success Criterion that
+version publishes, and nothing else. WCAG 2.2 incorporates criteria first introduced
+in earlier versions, but it is a whole standard in its own right (as ASVS v5.0.0 is): a
+consumer selects it by pinning this ref, not by filtering a version attribute. Other WCAG
+versions live on their own branches (`main` = 2.2, `release/2.1`, `release/2.0`).
+
 The "why" spine is **multi-root by design**: WCAG's four Principles are four distinct
 reasons — four root `intent`s, not one umbrella. Each Guideline is a `user_requirement`
 that `derives_from` its principle and carries its own `rationale`; each Success Criterion
 is a `system_requirement` that `implements` its guideline, with the W3C "Intent of this
 Success Criterion" as its `rationale`. The WCAG number lives in `attrs.source_ref`
-(`"1.4.3"`), the grade in `attrs.level`, and the version that introduced it in
-`attrs.wcag_version` — so one graph carries WCAG 2.0, 2.1 and 2.2 at once. 4.1.1 Parsing,
-removed in 2.2, is kept as a tombstone.
+(`"1.4.3"`), the grade in `attrs.level`, and the version that first introduced the
+criterion in `attrs.wcag_version` — provenance only, never a selector.
 
 ## The four principles — the roots
 
