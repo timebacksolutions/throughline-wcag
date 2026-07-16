@@ -3,7 +3,7 @@
 The **Web Content Accessibility Guidelines (WCAG)** expressed as a
 [throughline](https://pypi.org/project/throughline/) **source** — a standalone, grounded
 requirements graph that a consuming project composes with
-[throughline-compose](https://github.com/rhodium-org/throughline-compose).
+[throughline-compose](https://github.com/timebacksolutions/throughline-compose).
 
 Each published WCAG version is a separate **edition on its own branch** (see *Editions are
 branches* below); the live counts and [`docs/spec.md`](docs/spec.md) reflect whichever
