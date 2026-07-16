@@ -1,4 +1,4 @@
-# standard-wcag
+# throughline-wcag
 
 The **Web Content Accessibility Guidelines (WCAG)** expressed as a
 [throughline](https://pypi.org/project/throughline/) **source** — a standalone, grounded
@@ -82,7 +82,7 @@ everywhere it appears). 4.1.1 Parsing, retired in 2.2, remains a throughline **t
 
 **A future WCAG 3.0** (a different model, not an additive revision) would branch the same
 way — `main` advances to it, `release/2.2` preserves this edition — the same
-release-branch-per-edition model `standard-asvs` uses for v4 → v5.
+release-branch-per-edition model `throughline-asvs` uses for v4 → v5.
 
 ## Modelling conventions
 
@@ -101,7 +101,7 @@ In a consuming project's `throughline.toml`:
 
 ```toml
 [sources.wcag]
-url = "https://github.com/rhodium-org/standard-wcag"
+url = "https://github.com/timebacksolutions/throughline-wcag"
 ref = "v2.2.2"        # or v2.1.0 / v2.0.0 for an earlier edition
 ```
 
