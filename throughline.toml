@@ -1,6 +1,6 @@
 [project]
 name = "W3C WCAG (throughline source)"
-format_version = 2
+format_version = 3
 
 # A throughline *source*: a standalone graph a consuming project composes via
 # throughline-compose, importing it under a namespace (e.g. `wcag`) and referencing
@@ -64,3 +64,14 @@ rejected    = ["draft", "deleted"]
 # `tl docs` regenerates docs/*.md from the graph; `tl docs --check` gates it.
 [docs]
 paths = ["README.md", "docs/*.md"]
+
+# Semantic status roles (SR-0131): which declared status
+# plays each role the tool's operations act on. Backfilled by
+# `tl migrate`; edit to match your own status vocabulary.
+[status.roles]
+initial = "draft"
+proposed = "proposed"
+ratified = "ratified"
+invalidated = "rejected"
+suspect = "suspect"
+tombstone = "deleted"
