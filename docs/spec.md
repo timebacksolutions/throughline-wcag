@@ -63,6 +63,8 @@ criterion in `attrs.wcag_version` — provenance only, never a selector.
 
 *Rationale:* Text can be rendered as speech, braille, enlarged print or symbols, so non-text content reaches people who cannot see or process images.
 
+*Derives from:* INT-0001
+
 **source_ref**: 1.1
 <!-- tl:end -->
 
@@ -80,6 +82,8 @@ criterion in `attrs.wcag_version` — provenance only, never a selector.
 > Provide alternatives for time-based media.
 
 *Rationale:* Audio and video carry information some users cannot hear or see; captions, descriptions and transcripts make that information available to everyone.
+
+*Derives from:* INT-0001
 
 **source_ref**: 1.2
 <!-- tl:end -->
@@ -107,6 +111,8 @@ criterion in `attrs.wcag_version` — provenance only, never a selector.
 
 *Rationale:* When structure and relationships are encoded programmatically, content can be presented in different ways — spoken, reflowed, restyled — without losing meaning.
 
+*Derives from:* INT-0001
+
 **source_ref**: 1.3
 <!-- tl:end -->
 
@@ -129,6 +135,8 @@ criterion in `attrs.wcag_version` — provenance only, never a selector.
 > Make it easier for users to see and hear content including separating foreground from background.
 
 *Rationale:* Users with low vision, colour blindness or hearing difficulty need enough contrast, control over audio and resizable text to separate content from its surroundings.
+
+*Derives from:* INT-0001
 
 **source_ref**: 1.4
 <!-- tl:end -->
@@ -162,6 +170,8 @@ criterion in `attrs.wcag_version` — provenance only, never a selector.
 
 *Rationale:* Many users cannot use a mouse; all functionality must be reachable and operable from a keyboard or keyboard interface.
 
+*Derives from:* INT-0002
+
 **source_ref**: 2.1
 <!-- tl:end -->
 
@@ -182,6 +192,8 @@ criterion in `attrs.wcag_version` — provenance only, never a selector.
 > Provide users enough time to read and use content.
 
 *Rationale:* People read and act at very different speeds; users must be able to turn off, adjust or extend time limits so they are not cut off mid-task.
+
+*Derives from:* INT-0002
 
 **source_ref**: 2.2
 <!-- tl:end -->
@@ -206,6 +218,8 @@ criterion in `attrs.wcag_version` — provenance only, never a selector.
 
 *Rationale:* Flashing content can trigger seizures; limiting flashes protects users with photosensitive epilepsy and vestibular disorders.
 
+*Derives from:* INT-0002
+
 **source_ref**: 2.3
 <!-- tl:end -->
 
@@ -225,6 +239,8 @@ criterion in `attrs.wcag_version` — provenance only, never a selector.
 > Provide ways to help users navigate, find content, and determine where they are.
 
 *Rationale:* Users need ways to find content, orient themselves and know where they are — through titles, headings, focus order and visible focus — especially when they cannot scan a page visually.
+
+*Derives from:* INT-0002
 
 **source_ref**: 2.4
 <!-- tl:end -->
@@ -256,6 +272,8 @@ criterion in `attrs.wcag_version` — provenance only, never a selector.
 
 *Rationale:* People operate devices in many ways beyond a keyboard — touch, pointer, voice, motion — and each must work without requiring precise or tiring gestures.
 
+*Derives from:* INT-0002
+
 **source_ref**: 2.5
 <!-- tl:end -->
 
@@ -283,6 +301,8 @@ criterion in `attrs.wcag_version` — provenance only, never a selector.
 
 *Rationale:* Text must be readable and its language machine-identifiable so assistive technology can pronounce it and users can understand unusual words and abbreviations.
 
+*Derives from:* INT-0003
+
 **source_ref**: 3.1
 <!-- tl:end -->
 
@@ -306,6 +326,8 @@ criterion in `attrs.wcag_version` — provenance only, never a selector.
 
 *Rationale:* Interfaces that behave consistently and change only when the user expects it let people with cognitive differences build reliable mental models.
 
+*Derives from:* INT-0003
+
 **source_ref**: 3.2
 <!-- tl:end -->
 
@@ -328,6 +350,8 @@ criterion in `attrs.wcag_version` — provenance only, never a selector.
 > Help users avoid and correct mistakes.
 
 *Rationale:* Everyone makes mistakes; clear labels, error identification, suggestions and prevention help users avoid and recover from them, especially on legal, financial or data submissions.
+
+*Derives from:* INT-0003
 
 **source_ref**: 3.3
 <!-- tl:end -->
@@ -356,6 +380,8 @@ criterion in `attrs.wcag_version` — provenance only, never a selector.
 > Maximize compatibility with current and future user agents, including assistive technologies.
 
 *Rationale:* Content must expose correct name, role, value and status to assistive technologies so it keeps working across browsers, devices and future tools.
+
+*Derives from:* INT-0004
 
 **source_ref**: 4.1
 <!-- tl:end -->
